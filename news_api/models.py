@@ -10,3 +10,6 @@ class Article(models.Model):
 
     def url(self):
         return f"https://www.mos.ru/news/item/{self.article_id}/"
+
+    def __str__(self):
+        return self.title
