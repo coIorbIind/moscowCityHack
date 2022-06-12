@@ -1,15 +1,16 @@
 .main {
-  height: 700px;
+  height: 900px;
+  width: 650px;
 }
 .main form {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  width: 456px;
+  width: 526px;
 }
 .main__url {
-  width: 456px;
-  height: 40px;
+  width: 526px;
+  height: 45px;
   padding-left: 20px;
   font-family: sans-serif;
   background-color: darkgray;
@@ -23,21 +24,19 @@
 }
 .main__textarea {
   background-color: darkgray;
-  width: 456px;
-  max-height: 245px;
+  width: 556px;
+  max-height: 335px;
   color: white;
   font-weight: 700;
 }
-.main__textarea {
-  color: white;
-}
+
 .main__progress {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-top: 25px;
   justify-content: space-evenly;
   width: 626px;
-  margin-left: -6.5%;
+  margin-left: 3%;
   color: black;
 }
 .main form .main__button {
@@ -53,17 +52,27 @@
   margin-left: 1.5%;
   font-weight: 800;
 }
+.main__progress {
+  display: flex;
+  justify-content: space-evenly;
+  width: 600px;
+  margin-left: -6%;
+  color: white;
+  margin-top: 26%;
+}
 .main__progress div {
   display: flex;
   flex-direction: column;
-  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
+  justify-content: center;
+  align-items: center;
 }
-.main__progress div h4 {
-  text-align: center;
-  margin-top: 5px;
-  color: white;
+.main__progress h4 {
+  margin-top: 6px;
 }
-
+.main__progress .v-avatar {
+  font-weight: 700;
+  font-size: 17px;
+}
 .container {
   display: flex;
   flex-direction: row;
@@ -72,24 +81,32 @@
 }
 
 /* result */
-
-.result {
-  background-color: darkgrey;
-  width: 800px;
-  height: 515px;
+.fake-image {
+  height: 500px;
+  margin-top: 3%;
+  width: 680px;
   border-radius: 5px;
-  padding-left: 4%;
 }
 
-.result h5 {
-  width: 500px;
+.v-stepper {
+  width: 680px;
 }
 
-.newsInfo {
-  margin-top: 5%;
+.v-stepper__label {
+  font-size: 13px;
+}
+.main__pointer {
+  width: 420px;
+  background-color: #4caf50;
+  margin: 5%;
+  margin-left: 8%;
+}
+.v-alert__content {
+  display: flex;
+  flex-direction: row;
+}
+.v-alert h4 {
+  margin-left: 10%;
   color: white;
-}
-.newsInfo p {
-  color: blue;
-  font-size: 14px;
+  font-family: sans-serif;
 }
