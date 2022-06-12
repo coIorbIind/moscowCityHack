@@ -5,20 +5,14 @@ services:
     image: postgres
     volumes:
       - ./data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=ms_db
-      - POSTGRES_USER=ms_user
-      - POSTGRES_PASSWORD=321admin123
+    ports:
+      - "6543:5432"
 
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
-    environment:
-      - POSTGRES_DB=ms_db
-      - POSTGRES_USER=ms_user
-      - POSTGRES_PASSWORD=321admin123
     ports:
       - "8000:8000"
     depends_on:

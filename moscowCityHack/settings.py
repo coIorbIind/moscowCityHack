@@ -93,9 +93,9 @@ WSGI_APPLICATION = 'moscowCityHack.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env("DB_NAME"),
-        'USER': env("USER_LOGIN"),
-        'PASSWORD': env("USER_PASSWORD"),
+        'NAME': env("POSTGRES_DB"),
+        'USER': env("POSTGRES_USER"),
+        'PASSWORD': env("POSTGRES_PASSWORD"),
         'HOST': env("HOST"),
         'PORT': env("PORT")
     }
