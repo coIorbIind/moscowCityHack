@@ -61,7 +61,7 @@
   width: 600px;
   margin-left: 6%;
   color: white;
-  margin-top: 2%;
+  margin-top: 1%;
 }
 .main__progress div {
   display: flex;
@@ -116,11 +116,18 @@
 
 #result {
   margin-top: 5%;
-  display: flex;
-  flex-direction: row;
+
   width: 90%;
-  margin-left: 4%;
-  justify-content: space-around;
+  padding-left: 6%;
+  padding-right: 6%;
+  margin-left: 5%;
+  border-radius: 5px;
+
+  background-color: gray;
+  height: 736px;
+}
+.result_pointer {
+  display: flex;
 }
 #result img {
   margin-top: 4%;
@@ -128,7 +135,6 @@
 .result_text {
   width: 90%;
   margin-left: 4%;
-  margin-top: 5%;
 }
 .original_text {
   height: auto;
@@ -138,4 +144,5 @@
   border-radius: 5px;
   font-family: sans-serif;
   padding-left: 10px;
+  margin-left: -5%;
 }

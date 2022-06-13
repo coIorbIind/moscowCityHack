@@ -9,7 +9,8 @@
                     <v-textarea v-model="originalText" class="main__textarea" filled auto-grow label="Вставьте текст"
                         rows="6" color="green" row-height="58">
                     </v-textarea>
-                    <v-btn @click="goto('res'); titleSend(); textSend();" class="main__button" color="green" block>
+                    <v-btn @click="goto('res'); titleSend(); textSend();" class="main__button"
+                        style="background: #C9FF58;" block>
                         Проверить
                     </v-btn>
                 </form>
@@ -43,6 +44,7 @@
         <!-- Result pointers -->
 
         <div ref="res" id="result">
+            <div class="result_pointer">
             <img class="navbar__img" src="../assets/images/Logo.png" alt="" />
             <div class="main__progress">
 
@@ -64,7 +66,7 @@
                 </div>
             </div>
             <div>
-                <v-alert class="main__pointer" border="left" color="green" elevation="2">
+                <v-alert class="main__pointer" border="left" style="background: #C9FF58;" elevation="2">
                     <div>
 
                         <v-progress-circular :size="75" :width="15" :value="valueTrue" color="white">
@@ -76,14 +78,16 @@
                         <h4>{{titlePosted}}</h4>
                     </div>
                 </v-alert>
-            </div>
+           
         </div>
+            </div>
 
         <!-- Result text -->
         <div class="result_text">
             <div class="original_text">
                 <h4>{{originalTextSend}}</h4>
             </div>
+        </div>
         </div>
     </v-app>
 
