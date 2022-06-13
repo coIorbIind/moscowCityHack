@@ -11,6 +11,21 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+from ds_module.model import SimilarityModel
+import pandas as pd
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'moscowCityHack.settings')
+
+try:
+    model = SimilarityModel("ds_module/ft_native_300_ru_wiki_lenta_lemmatize.vec")
+    print("Created model")
+    texts = pd.read_json("ds_module/mos_ru.json", encoding="utf8")
+    print("Text reading finished")
+    model.train(texts.iloc[:20])
+    print("Model training finished")
+
+except Exception as e:
+    model = None
+    print("Exception while loading the algorithms to the registry,", str(e))
 
 application = get_wsgi_application()

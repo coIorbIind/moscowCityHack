@@ -3,37 +3,52 @@ from rest_framework.views import APIView
 
 from .models import Article
 from .serializers import ArticleSerializer
+from moscowCityHack.wsgi import model
 
 
 class NewsView(APIView):
 
     def get(self, request, format=None):
-
         data = request.data
 
         text = data.get("text")
         title = data.get("title")
 
-        result = {
-            "original_id": 101279073,
-            "new_original_text": "новый текст оригинал",
-            "new_user_text": "новый текст для пользователя"
-        }
+        print(text)
 
-        article_id = result.get("original_id")
-        new_original_text = result.get("new_original_text")
-        new_user_text = result.get("new_user_text")
-        article = Article.objects.get(article_id=article_id)
-        serialized_data = ArticleSerializer(article).data
+        if model is None:
+            print("Модель не работает")
+            return Response({"error": "Error during creating model"})
 
-        serialized_data["full_text"] = new_original_text
+        print("OK!")
 
-        response = {
-            "original": serialized_data,
-            "new_user_text": new_user_text,
-            "fake": True
-        }
+        result = model.predict(text)
 
-        return Response(response)
-        # article_text
+        orig_article = Article.objects.get(article_id=int(result.pop("origId")))
+        orig_article_url = orig_article.url()
+        orig_article_title = orig_article.title
 
+        result["originalUrl"] = orig_article_url
+        result["originalTitle"] = orig_article_title
+
+        # result = {
+        #     "rating": "",
+        #     "distortionCount": "",
+        #     "stuffingCount": "",
+        #     "directQuotesCount": "",
+        #     "originalUrl": "",
+        #     "originalTitle": "",
+        #     "similarity": "",
+        #     "sentences": [
+        #         {
+        #             "userSentence": "",
+        #             "originalSentence": "",
+        #         },
+        #         {
+        #             "userSentence": "",
+        #             "originalSentence": "",
+        #         }
+        #     ]
+        # }
+
+        return Response(result)
