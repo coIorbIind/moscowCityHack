@@ -66,7 +66,7 @@ class SimilarityModel:
         # Finding idf values for each word
         text_num = len(preprocessed_texts)
 
-        print(self.vocabulary)
+        # print(self.vocabulary)
 
         for t_text in preprocessed_texts:
             unique_words = set(t_text)

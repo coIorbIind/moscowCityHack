@@ -31,7 +31,7 @@ class NewsView(APIView):
         result["originalUrl"] = orig_article_url
         result["originalTitle"] = orig_article_title
 
-        if result["distortionCount"] != 0:
+        if result["distortionCount"] == 0:
             result["rating"] = round(result["similarity"] * 100)
         else:
             result["rating"] = round(result["similarity"] / result["distortionCount"] * 100)

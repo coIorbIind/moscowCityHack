@@ -21,7 +21,7 @@ try:
     print("Created model")
     texts = pd.read_json("ds_module/mos_ru.json", encoding="utf8")
     print("Text reading finished")
-    model.train(texts)
+    model.train(texts.iloc[:500])
     print("Model training finished")
 
 except Exception as e:
