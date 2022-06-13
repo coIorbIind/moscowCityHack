@@ -21,11 +21,11 @@ try:
     print("Created model")
     texts = pd.read_json("ds_module/mos_ru.json", encoding="utf8")
     print("Text reading finished")
-    model.train(texts.iloc[:20])
+    model.train(texts)
     print("Model training finished")
 
 except Exception as e:
     model = None
-    print("Exception while loading the algorithms to the registry,", str(e))
+    print(e)
 
 application = get_wsgi_application()

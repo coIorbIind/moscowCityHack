@@ -40,14 +40,17 @@ class SimilarityModel:
         self.vec_size = 0
         self.spacy_model = spacy.load('ru_core_news_lg')
 
-
     def train(self, texts: pd.DataFrame):
-        preprocessed_texts = self.__preprocessing__(texts)
+        preprocessed_texts = self.__preprocessing__(texts.full_text)
+
+        #print(preprocessed_texts[:3])
 
         # Creating vocabulary
         all_words = list()
         for t_text in preprocessed_texts:
             all_words += t_text
+
+        #print(preprocessed_texts[:3])
 
         self.vocabulary = {word: np.ones(300) for word in set(all_words)}
 
@@ -62,6 +65,8 @@ class SimilarityModel:
 
         # Finding idf values for each word
         text_num = len(preprocessed_texts)
+
+        print(self.vocabulary)
 
         for t_text in preprocessed_texts:
             unique_words = set(t_text)

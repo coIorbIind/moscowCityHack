@@ -31,24 +31,10 @@ class NewsView(APIView):
         result["originalUrl"] = orig_article_url
         result["originalTitle"] = orig_article_title
 
-        # result = {
-        #     "rating": "",
-        #     "distortionCount": "",
-        #     "stuffingCount": "",
-        #     "directQuotesCount": "",
-        #     "originalUrl": "",
-        #     "originalTitle": "",
-        #     "similarity": "",
-        #     "sentences": [
-        #         {
-        #             "userSentence": "",
-        #             "originalSentence": "",
-        #         },
-        #         {
-        #             "userSentence": "",
-        #             "originalSentence": "",
-        #         }
-        #     ]
-        # }
+        if result["distortionCount"] != 0:
+            result["rating"] = round(result["similarity"] * 100)
+        else:
+            result["rating"] = round(result["similarity"] / result["distortionCount"] * 100)
+        result["similarity"] = round(result["similarity"])
 
         return Response(result)
