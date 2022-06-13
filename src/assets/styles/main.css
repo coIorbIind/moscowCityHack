@@ -1,5 +1,8 @@
+.v-application--wrap {
+  height: 1500px;
+  background-color: black;
+}
 .main {
-  height: 900px;
   width: 650px;
 }
 .main form {
@@ -56,9 +59,9 @@
   display: flex;
   justify-content: space-evenly;
   width: 600px;
-  margin-left: -6%;
+  margin-left: 6%;
   color: white;
-  margin-top: 26%;
+  margin-top: 2%;
 }
 .main__progress div {
   display: flex;
@@ -109,4 +112,30 @@
   margin-left: 10%;
   color: white;
   font-family: sans-serif;
+}
+
+#result {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin-left: 4%;
+  justify-content: space-around;
+}
+#result img {
+  margin-top: 4%;
+}
+.result_text {
+  width: 90%;
+  margin-left: 4%;
+  margin-top: 5%;
+}
+.original_text {
+  height: auto;
+  width: 690px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  font-family: sans-serif;
+  padding-left: 10px;
 }
