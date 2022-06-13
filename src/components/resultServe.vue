@@ -94,9 +94,11 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
         return {
+
             titleValue: '',
             titlePosted: '',
             originalText: '',
@@ -112,7 +114,23 @@ export default {
           return this.titleValue.length > 0;
       },
       textSend() {
-          this.originalTextSend = this.originalText;  
+        axios.get('http://127.0.0.1:8000/api/v1/get-assessment/', {
+              headers: {
+                  'Content-type': 'application/json',
+            },
+            body: {
+                title: {
+                   title: this.titleValue,
+                },
+                text: {
+                    text: this.originalText
+                }
+            }
+          }).then(response => {
+              console.log(response);
+          }).catch(e => {
+              console.log(e);
+          })
 },
       titleSend() {
           this.titlePosted = this.titleValue;
