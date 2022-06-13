@@ -1,5 +1,8 @@
 # nofake-app
+```
+cd nofake-app
 
+```
 ## Project setup
 
 ```
